@@ -72,6 +72,6 @@ For a detailed example of List Tuner and its features, see the screencast below:
 
 ## Author
 
-- **Hendrik Scheeres** - Minor Programeren UvA 11228962
+- **Hendrik Scheeres** - Minor Programeren UvA 11228962 2020
 
 ## Acknowledgments
