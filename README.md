@@ -1,5 +1,5 @@
 # List Tuner
-**List Tuner** is a web application that shows you useful statistics of your music playlists on Spotify so that you can fine tune them to perfection. Made as a final project during the Minor Programming Course in 2021.
+**List Tuner** is a web application that shows you useful statistics of your music playlists on Spotify so that you can fine tune them to perfection. Made as a final project during the Minor Programming Course in 2020.
 
 ![Frontpage image](./doc/Frontpage.png)
 
