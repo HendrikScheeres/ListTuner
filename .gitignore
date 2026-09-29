@@ -8,6 +8,8 @@ __pycache__/
 # C extensions
 *.so
 
+run.sh
+
 # Distribution / packaging
 .Python
 build/
@@ -139,7 +141,8 @@ dmypy.json
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
