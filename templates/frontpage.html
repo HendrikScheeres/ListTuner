@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ListTuner</title>
+
+    <!-- include stylesheets and plugins -->
+    {% include "style.html" %}
+  </head>
+
+  <body id="frontpage">
+
+    <!-- website title -->
+    <div>
+      <h1 id="website_title">List Tuner</h1>
+    </div>
+
+    <!-- card -->
+    <div class="card">
+      <div>
+        <h3 id="card_header">Welcome to ListTuner!</h3>
+      </div>
+
+      <div id="card_introduction">
+        <p>The website were you can fine tune your favourite playlists.</p>
+        <p>Log into your Spotify account to select a playlist you want to fine tune.</p>
+      </div>
+
+      <button id="login_button" type="button" name="button"><a href="{{ url_for("login") }}">LOG INTO SPOTIFY</a></button>
+    </div>
+
+    <!-- footer-->
+    <div>
+      <h3 id="subscript" >Hendrik Scheeres</h3>
+    </div>
+  </body>
+</html>

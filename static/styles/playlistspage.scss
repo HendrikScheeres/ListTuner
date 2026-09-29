@@ -1,0 +1,48 @@
+#playlistspage {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#playlist_text {
+  margin: 20px;
+  font-size: 1.5vw;
+  font-weight: 400;
+  color: $dark-blue;
+}
+
+#playlist_list {
+  margin-left: 20px;
+  margin-top: 50px;
+  margin-right: 20px;
+  margin-bottom: 50px;
+
+  li {
+    color:$dark-blue;
+    border-color: $dark-blue;
+    border-width: 8px;
+
+    &:hover {
+      background-color: white;
+    }
+  }
+
+  h3 {
+    display: inline;
+    font-weight: 600;
+  }
+  p {
+    display: inline;;
+    font-size: 20px;
+    font-weight: 400px;
+  }
+}
+
+.analyze_buttons {
+
+  width: 120px;
+  height: 40px;
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ListTuner:Statistics</title>
+
+    <!-- include stylesheets and plugins -->
+    {% include "style.html" %}
+
+    <!-- include javascript -->
+    <script src="../static/scripts/chart_functions.js"></script>
+    <script src="../static/scripts/charts.js"></script>
+  </head>
+  <body id="statisticspage">
+
+    <!-- navigationbar -->
+    <div>
+        {% include "navbar.html" %}
+    </div>
+
+    <div class="row justify-content-center">
+
+      <!-- header -->
+      <div class="page_header col-9">
+        <h1 id="statistics_title" >{{ playlist["name"] }}</h1>
+      </div>
+
+      <!-- page body -->
+      <div class="page_body col-9">
+
+        <!-- title -->
+        <div>
+          <h2>Playlist statistics</h2>
+        </div>
+
+        <div id="statistics" data-playlist_id={{ playlist["id"] }}>
+
+          <!-- playlist charts -->
+          <div id="chart_container">
+
+            <!-- track genres chart -->
+            <div class="chart">
+
+              <!-- loading animation -->
+              <div class="loader">Loading...</div>
+
+              <canvas id="Chart1" width="1300" height="1000"></canvas>
+
+              <div class="textbox">
+                <span>This doughnutchart displays all the different genres in your playlist and how many songs belong to each genre. Check </span>
+                <a href="http://everynoise.com/everynoise1d.cgi?vector=name&scope=all" target="_blank">this website</a><span> to find music from the same genres on Spotify!</span>
+              </div>
+            </div>
+
+            <!-- track tempo and loudness chart -->
+            <div class="chart">
+
+              <!-- loading animation -->
+              <div class="loader">Loading...</div>
+
+              <canvas id="Chart3" width="1300" height="800"></canvas>
+
+              <div class="textbox">
+                <span>This chart displays the change in tempo (bpm) and loudness (dB) over the course of the playlist. Check </span>
+                <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank">the Spotify API</a>
+                <span> for more information on the tempo and loudness of a track.</span>
+                <span>Tip: hover over the datapoints to see which song they belong to.</span>
+              </div>
+            </div>
+
+            <!-- track features chart -->
+            <div class="chart">
+
+              <!-- loading animation -->
+              <div class="loader">Loading...</div>
+
+              <canvas id="Chart4" width="1300" height="800"></canvas>
+
+              <div class="textbox">
+                <span>This chart displays the different audio features over the course of the playlist. These features are expresed by a float varying between 0 and 1. Check </span>
+                <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank">the Spotify API</a>
+                <span> for more information on these audiofeatures.</span>
+                <span>Tip: hover over the datapoints to see which song they belong to.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- track dropdown list -->
+        <div >
+
+          <!-- dropdown buttons -->
+          <button class"btn btn-secondary dropdown-toggle" type="button" id="tracks_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-tracks={{ playlist["tracks"] }}>
+            <h2>Playlist tracks</h2>
+            <svg class="bi bi-caret-down" width="60px" height="60px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 001.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+
+          <!-- dropdown menu -->
+          <div class="dropdown-menu" aria-labelledby="tracks_dropdown">
+            {% for track in playlist["tracks"] %}
+
+              <!-- link to track preview -->
+              <a href="{{track["preview_url"]}}" target="_blank" class="dropdown-item">
+
+                <!-- track name -->
+                <span id="track_name">{{ track["name"] }}</span>
+
+                  <!-- track artists -->
+                  {% for track_artist in track["artist_names"] %}
+                    <span id="track_artists">{{ track_artist }}</span>
+                  {% endfor %}
+
+                  <!-- display if track can be previewed -->
+                  {% if track["preview_url"] %}
+                    <span id="track_preview" >click to preview song!</span>
+                  {% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- playlist seals -->
+        <div>
+          <h2>Compare playlist features</h2>
+        </div>
+
+
+        <div id="compare_container">
+          <div>
+            <h3>Compare the average features of your playlist to other well put together playlists:</h3>
+          </div>
+
+          <!-- average track feature chart -->
+          <div id="radar_chart">
+
+            <!-- loading animation -->
+            <div class="loader">Loading...</div>
+
+            <canvas id="Chart2"></canvas>
+          </div>
+
+          <!-- list with seal playlists -->
+          <div id="compare_list">
+            <ul>
+              {% for seal in seals %}
+              <li>
+                <span class="description">{{ seal.playlist_name }} by {{ seal.playlist_creator}}:</span>
+                <span class="creator">{{ seal.description }}</span>
+                <a href="{{seal.playlist_href}}"target="_blank" class="playlist_link">Check this playlist on Spotify</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- page buttons -->
+        <button class="page_button" id="next_button"><a href="{{ url_for("playlistspage") }}">NEXT PLAYLIST</a></button>
+        <button class="page_button" id="check_button"><a href="{{ playlist["external_urls"] }}" target="_blank">CHECK PLAYLIST ON SPOTIFY</a></button>
+
+      </div>
+    </div>
+  </body>
+</html>

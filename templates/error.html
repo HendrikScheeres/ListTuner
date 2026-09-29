@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- include stylesheets and plugins -->
+    {% include "style.html" %}
+  </head>
+  <body>
+
+    <!-- error message -->
+    <div class="d-flex justify-content-center">
+      <h1>{{ message }}</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <h2>It seems something has gone wrong with the Spotify API request :(.</h2>
+      <h2><a href="{{ url_for("logout") }}"> Log out</a> and log back into ListTuner to try again</h2>
+    </div>
+
+  </body>
+</html>

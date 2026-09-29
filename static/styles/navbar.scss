@@ -1,0 +1,39 @@
+.navbar {
+  background-color: $blood-orange;
+  span {
+    color: $dark-blue;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  li > a {
+    color: $dark-blue;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+span.navbar-toggler-icon {
+  color: white;
+}
+
+#logout_button {
+  background-color: $blood-orange;
+  border-color: white;
+  color: white;
+  border-style: solid;
+  float: right;
+
+
+  &:hover {
+    background-color: white;
+    border-color: $blood-orange;
+    color: $blood-orange;
+  }
+
+  a {
+    text-decoration: inherit;
+    color: inherit;
+    font-weight: 400;
+  }
+}

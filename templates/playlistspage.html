@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ListTuner:Playlists</title>
+
+    <!-- include stylesheets and plugins --> 
+    {% include "style.html" %}
+  </head>
+
+  <!-- hide navbar link to statistics page -->
+  <style>
+    #statistics_link {
+      display: none !important;
+    }
+  </style>
+
+  <body id="playlistspage">
+
+    <!-- navigationbar -->
+    <div>
+        {% include "navbar.html" %}
+    </div>
+
+    <div class="row justify-content-center">
+
+      <!-- header -->
+      <div class="page_header col-9">
+        <h1>{{ user_info["username"] }}</h1>
+      </div>
+
+      <!-- page body -->
+      <div class="page_body col-9">
+
+        <!-- list title -->
+        <div>
+          <h2>Playlists</h2>
+          <p> - {{ user_info["num_playlists"] }} lists</p>
+        </div>
+
+        <!-- playlists -->
+        <div>
+
+          <!-- intro text -->
+          <div id="playlist_text">
+            <span>Select a playlist from your Spotify to analyze! Sadly only playlists below 100 songs can be selected to create clear chart results.</span>
+          </div>
+
+          <!-- playlist list -->
+          <ul class="list-group" id="playlist_list">
+
+            {% for playlist in user_info["playlists"]%}
+              <li class="list-group-item list-group-item-action d-flex justify-content-between">
+
+                <!-- playlist name -->
+                <div id="list-names">
+                  <h3>{{ playlist["name"] }}</h3>
+                  <p> - {{ playlist["tracks"]["total"] }} tracks</p>
+                </div>
+
+                <!-- analyse button -->
+                <button type="button" data-tracks="{{ playlist["tracks"]["href"] }}" class="page_button analyze_buttons">
+                  <a href="{{ url_for("statisticspage", id=playlist["id"]) }}">ANALYZE</a>
+                </button>
+
+              </li>
+              {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

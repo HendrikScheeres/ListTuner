@@ -1,0 +1,13 @@
+// this is the main scss file that imports all the scss files from the scss folder
+
+// variables
+@import 'variables.scss';
+
+// website pages
+@import 'frontpage.scss';
+@import 'playlistspage.scss';
+@import 'statisticspage.scss';
+
+// page features
+@import 'general.scss';
+@import 'navbar.scss';

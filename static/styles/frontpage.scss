@@ -1,0 +1,56 @@
+#frontpage {
+  background-color: $blood-orange;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#website_title {
+  color: $dark-blue;
+  font-size: 140px;
+  font-weight: 700;
+  display: inline-block;
+  margin: 120px;
+}
+
+#card_header {
+  font-weight: 600;
+  color: $dark-blue;
+}
+
+#card_introduction {
+  font-size: 24px;
+  font-weight: 400;
+  color: $dark-blue;
+}
+
+#subscript {
+  color: white;
+  margin: 20px;
+  font-weight: 500;
+}
+
+#login_button {
+  background-color: $spotify-green;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+
+  a {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+}
+
+.card {
+    background-color: #f8f8f8;
+    display: inline-block;
+    padding: 30px;
+    margin: 30px;
+    display: inline-block;
+    line-height: 130%;
+}
